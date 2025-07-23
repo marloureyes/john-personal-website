@@ -31,6 +31,8 @@ function initHeaderScripts() {
   }
 }
 
+function initFooterScripts() {}
+
 window.addEventListener("DOMContentLoaded", async () => {
   await loadHTML("#header", "components/header.html");
   await loadHTML("#footer", "components/footer.html");
@@ -39,7 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   initHeaderScripts();
 });
 
-// test only :) for class and inheritance
+//------------------ test only :) for class and inheritance
 
 // function based
 function Person(name, age) {
