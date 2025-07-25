@@ -5,6 +5,18 @@
   font-family: "Heebo", Helvetica, sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 /* ─────────────────────────── Mobile Default Styles ─────────────────────────── */
 
 /* Navigation Bar Section  */
@@ -108,6 +120,10 @@ header {
   color: #ff6464;
 }
 
+.navbar__links.active {
+  color: #ff6464;
+}
+
 /* End of Navigation Bar Section  */
 
 /* Hero Section  */
@@ -164,6 +180,7 @@ header {
 
 .hero__btn {
   display: inline-block;
+  position: relative;
   width: fit-content;
   align-self: center;
   font-size: 1.25rem;
@@ -172,8 +189,25 @@ header {
   border-radius: 2px;
   border: none;
   background-color: #ff6464;
-  outline: none;
   cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #00a8cc;
+  z-index: -1;
+  transition: width 0.4s ease;
+}
+
+.hero__btn:hover::before {
+  width: 100%;
 }
 
 /* Hero Section  */
@@ -209,12 +243,12 @@ header {
   display: flex;
   flex-direction: column;
   gap: 17px;
+  list-style: none;
 }
 
 .post {
   background-color: #fff;
   border-radius: 4px;
-  list-style: none;
   padding: 22px 18px;
   display: flex;
   flex-direction: column;
@@ -239,6 +273,10 @@ header {
   flex-direction: row;
   gap: 24px;
   font-size: 1rem;
+}
+
+.view__btn__max {
+  display: none;
 }
 
 .view__btn__min {
@@ -280,6 +318,7 @@ header {
 .featured__item {
   display: flex;
   flex-direction: column;
+  margin-bottom: 31px;
   gap: 16px;
   list-style: none;
 }
@@ -290,13 +329,13 @@ header {
   gap: 16px;
 }
 
-.featured_item-content {
+.featured__item-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.featured_item-content h3 {
+.featured__item-content h3 {
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -322,7 +361,7 @@ header {
   color: #8695a4;
 }
 
-.featured__separator {
+.article__separator {
   width: 100%;
   height: 2px;
   background-color: #ebebeb; /* oklch(55.1% 0.027 264.364) */
@@ -355,6 +394,21 @@ header {
   width: 100%;
   justify-content: space-between;
 }
+
+.gradient-hover {
+  font-size: 2rem;
+  background: linear-gradient(to left, #142850 50%, #ff6464 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.gradient-hover:hover {
+  background-position: 0 0;
+}
 /* End of Footer Section  */
 
 /* ──────────────────────── @min-width: 640px ──────────────────────── */
@@ -364,10 +418,6 @@ header {
   .featured__container {
     max-width: 640px;
     margin: 0 auto;
-  }
-
-  .view__btn__max {
-    display: none;
   }
 }
 
@@ -484,6 +534,10 @@ header {
     gap: 17px;
   }
 
+  .post h3 {
+    font-size: 26px;
+  }
+
   .view__btn__min {
     display: none;
   }
@@ -517,9 +571,147 @@ header {
     width: 246px;
   }
 
-  .featured_item-content h2 {
+  .featured__item-content h2 {
     font-size: 30px;
   }
 
   /* End of Featured Section  */
 }
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+/* ──────────────────────────────── Blog Page ───────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────── Mobile Default Styles ─────────────────────────── */
+
+.blog-page {
+  color: #142850;
+}
+.blog-page__container {
+  margin: 0 auto;
+  padding: 38px 18px 38px 18px;
+}
+
+.blog-page__container h1 {
+  font-weight: 900;
+  font-size: 44px;
+}
+
+.blog-page__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 0;
+  gap: 32px;
+}
+
+.blog-page__post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 24px;
+}
+
+.blog-page__post-card h2 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.post-card__details {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.post-card__date {
+  font-size: 1rem;
+}
+
+.post-card__type {
+  color: #8695a4;
+}
+
+/* ──────────────────────── @min-width: 640px ──────────────────────── */
+
+@media screen and (min-width: 640px) {
+  .blog-page__container {
+    max-width: 681px;
+  }
+
+  .blog-page__list {
+    padding: 53px 0;
+  }
+}
+
+/* ──────────────────────── @min-width:1024px ──────────────────────── */
+
+@media screen and (min-width: 1024px) {
+  .blog-page__container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+/* ──────────────────────────────── Work Page ───────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────────────────────── */
+
+.featured__heading {
+  font-weight: bold;
+  font-size: 1.875rem;
+  align-self: flex-start;
+}
+
+@media screen and (min-width: 1024px) {
+  .featured__heading {
+    font-size: 2.75rem;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+/* ──────────────────────────────── End of Work Page ────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────────────────────── */
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+/* ──────────────────────────────── Contact Page ────────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────────────────────── */
+.form {
+  width: 100%;
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.form__item {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.form__item input {
+  border: 2px solid #8695a4;
+  border-radius: 2px;
+  height: 30px;
+  padding: 12px 5px;
+}
+
+.form__item textarea {
+  border: 2px solid #8695a4;
+  border-radius: 2px;
+  height: 100px;
+  resize: none;
+  padding: 12px 5px;
+}
+
+.form_btn {
+  align-self: flex-end;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────────── */
+/* ──────────────────────────── End of Contact Page ─────────────────────────────── */
+/* ──────────────────────────────────────────────────────────────────────────────── */
