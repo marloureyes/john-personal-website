@@ -1,5 +1,7 @@
-A Sample Website of John.
+📄 John’s Sample Website
+A minimalist personal portfolio (front-end-only) website built using HTML, CSS, and good old vanilla JavaScript — no frameworks, just handcrafted code.
 
-GOALS:
-
-Is to challenge myself to create a simple website just only using HTML, CSS , and plain ol'Javascript
+🎨 Design Inspiration
+This project is based on a free Figma community design:
+🔗 Portfolio UI — Web & Mobile (Figma)
+All design credits go to the original creator.
