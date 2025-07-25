@@ -37,7 +37,7 @@ export const workMaps = [
   {
     id: "work-1",
     title: "Designing Dashboard",
-    imageSrc: "/public/images/featured-1.png",
+    imageSrc: "./public/images/featured-1.png",
     date: "2018-12-12",
     type: "Dashboard",
     content:
@@ -46,7 +46,7 @@ export const workMaps = [
   {
     id: "work-2",
     title: "Vibrant Portraits of 2020",
-    imageSrc: "/public/images/featured-2.png",
+    imageSrc: "./public/images/featured-2.png",
     date: "2020-11-03",
     type: "Illustration",
     content:
@@ -55,7 +55,7 @@ export const workMaps = [
   {
     id: "work-3",
     title: "Unbelievable Dashboard",
-    imageSrc: "/public/images/featured-3.png",
+    imageSrc: "./public/images/featured-3.png",
     date: "2021-11-12",
     type: "Illustration",
     content:
@@ -64,7 +64,7 @@ export const workMaps = [
   {
     id: "work-4",
     title: "Responsive Web Redesign",
-    imageSrc: "/public/images/featured-4.png",
+    imageSrc: "./public/images/featured-4.png",
     date: "2023-05-20",
     type: "Web Design",
     content:
